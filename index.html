@@ -1,0 +1,348 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Assignment</title>
+  <!-- ✅ Google Fonts (Montserrat) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: #f0e68c;
+      min-height: 100vh;
+      color: #222;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: #ff7f50;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background: #fff;
+      color: #b24a4a;
+    }
+
+    .menu-icon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-icon img {
+      width: 22px;
+      height: 22px;
+      margin-left: 10px;
+    }
+
+    /* Hero Section */
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: auto;
+      margin: 0 auto;
+      max-width: 1200px;
+      gap: 2rem;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    .section .content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #000;
+      letter-spacing: 4px; /* ✅ replaces <pre> */
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section p {
+      margin-bottom: 1.7rem;
+      line-height: 1.6;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff6347;
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      background: #912d2d;
+    }
+
+    .section .image {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .section img {
+      max-width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    /* Divider */
+    .divider {
+      height: 2px;
+      background: black;
+      margin: 20px auto 40px;
+      max-width: 1100px;
+    }
+
+    /* Grid Section */
+    .grid-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin: 60px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .grid-images {
+      flex: 1.2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+      padding: 10px;
+    }
+
+    .grid-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+
+    /* Default desktop layout */
+    .grid-images img:nth-child(1) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    .grid-images img:nth-child(2) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+    }
+
+    .grid-images img:nth-child(3) {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .grid-content {
+      flex: 0.8;
+      background: #ff6347;
+      color: black;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 6px;
+      min-width: 280px;
+    }
+
+    .grid-content p {
+      font-size: 0.9rem;
+      letter-spacing: 0.2px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .grid-content h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 3px; /* ✅ replaces <pre> */
+    }
+
+    .grid-content a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: black;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .grid-content a img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .grid-content a:hover {
+      color: #ffe082;
+    }
+
+    /* ✅ Responsive Fixes */
+    @media (max-width: 1024px) {
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .grid-section {
+        flex-direction: column;
+      }
+
+      .grid-images {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .grid-images img {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        gap: 1rem;
+      }
+
+      .section h1 {
+        font-size: 2rem;
+      }
+
+      /* ✅ Mobile fix for images */
+      .grid-images {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .grid-images img {
+        height: auto !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+      }
+
+      .grid-content h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+      }
+
+      .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+      }
+
+      .section h1 {
+        font-size: 1.6rem;
+      }
+
+      .grid-content {
+        padding: 1.2rem;
+      }
+
+      .grid-content h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Order</a>
+    <a href="#">Food</a>
+    <a href="#">Restaurant</a>
+    <a href="#">Testimonials</a>
+    <a href="#">Contact Us</a>
+    <div class="menu-icon">
+      <img src="./menu-bar.png" alt="Menu">
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="section">
+    <div class="content">
+      <h1><pre>L O R E M  I P S U M</pre></h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id est vitae dolor rhoncus tristique. 
+        Maecenas metus quam, rhoncus euismod lorem in, sollicitudin viverra eros. Donec dictum luctus quam ut tristique.
+        Curabitur nec faucibus purus. Quisque congue quam ut est consequat, in tincidunt erat pretium. 
+        Sed pulvinar, massa ac porta viverra.</p>
+      <a href="#" class="btn">Click Me</a>
+    </div>
+    <div class="image">
+      <img src="./pexels-robin-stickel-70497.jpg" alt="Burger & Fries">
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="divider"></div>
+
+  <!-- Grid Section -->
+  <section class="grid-section">
+    <div class="grid-images">
+      <img src="./pexels-rachel-claire-6752433.jpg" alt="Food Image 1">
+      <img src="./pexels-mister-mister-3434523.jpg" alt="Food Image 2">
+      <img src="./pexels-eva-bronzini-6141651.jpg" alt="Food Image 3">
+    </div>
+    <div class="grid-content">
+      <p>LOREM IPSUM</p>
+      <h2><pre>L O R E M  I P S U M<br>S E T  A D E M I R</h2></pre>
+      <a href="#">Click <img src="./icons8-arrow-30.png" alt="Arrow"></a>
+    </div>
+  </section>
+
+</body>
+</html>
